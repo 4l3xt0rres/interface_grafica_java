@@ -15,12 +15,12 @@ public class ProdutoView extends JFrame {
     private DefaultTableModel modelo;
      
     public ProdutoView() {
+        JPanel form = new JPanel();
         setTitle("Gerenciador de Produtos");
         setSize(600, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE); 
         setLayout(new BorderLayout());
-
-        JPanel form = new JPanel();
+        
         form.add(new JLabel("Nome:"));
         form.add(nomeField);
         form.add(new JLabel("Preço:"));
@@ -29,12 +29,10 @@ public class ProdutoView extends JFrame {
         form.add(quantidadeField);
 
         JButton addBtn = new JButton("Adicionar");
-        JButton listBtn = new JButton("Listar");
         JButton updateBtn = new JButton("Atualizar");
         JButton removeBtn = new JButton("Remover");
 
         form.add(addBtn);
-        form.add(listBtn);
         form.add(updateBtn);
         form.add(removeBtn);
         add(form, BorderLayout.NORTH);
@@ -51,14 +49,12 @@ public class ProdutoView extends JFrame {
                 int qtd = Integer.parseInt(quantidadeField.getText());
                 controller.adicionar(new Produto(0, nome, qtd, preco));
                 limparCampos();
-                
+                listar();
                 JOptionPane.showMessageDialog(this, "Produto adicionado!");
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Erro nos dados!");
             }
         });
-
-        listBtn.addActionListener(e -> listar());
 
         updateBtn.addActionListener(e -> {
             int linha = tabela.getSelectedRow();
@@ -96,13 +92,13 @@ public class ProdutoView extends JFrame {
 });
 
     }
-
     private void listar() {
         modelo.setRowCount(0);
         for (Produto p : controller.listar()) {
             modelo.addRow(new Object[]{p.getId(), p.getNome(), p.getPreco(), p.getQuantidade()});
         }
     }
+    
 
     private void limparCampos() {
         nomeField.setText("");
