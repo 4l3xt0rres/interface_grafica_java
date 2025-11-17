@@ -28,7 +28,7 @@ public class ProdutoView extends JFrame {
         /* organizando informações */
         JPanel form = new JPanel(); //painel que vai segurar os campos e botões
         setTitle("Gerenciador de Produtos"); /* nome da janela */
-        setSize(600, 400); /* resolução */
+        setSize(900, 400); /* resolução */
         setLocationRelativeTo(null); /* centralizar */
         setDefaultCloseOperation(EXIT_ON_CLOSE); /* encerrar programa */
         setLayout(new BorderLayout());  /* permite utilizar áreas norte, sul, centro e etc. */
