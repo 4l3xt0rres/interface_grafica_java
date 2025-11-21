@@ -1,5 +1,5 @@
 package crudprodutos;
-//classe produto 
+//classe que representa o modelo de produto
 public class Produto {
     // atributos 
     private int id;
