@@ -108,7 +108,7 @@ public class ProdutoView extends JFrame {
                 int id = (int) modelo.getValueAt(linha, 0); //retorna id da coluna
                 controller.remover(id); //remove todo o objeto com base na coluna
                 listar(); //lista os produtos novamente
-                JOptionPane.showMessageDialog(this, "Produto removido!"); //mensagem após remover
+                JOptionPane.showMessageDialog(this, "Produto removido!"); //mensagem depois de remover
             //caso não selecione nenhuma linha
             } else JOptionPane.showMessageDialog(this, "Selecione um produto!");
         });
